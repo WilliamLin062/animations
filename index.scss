@@ -59,8 +59,8 @@ section:nth-child(odd) {
 }
 
 #box {
-  width: 100px;
-  height: 100px;
+  width: 9%;
+  height: 16%;
   position: absolute;
   border: 5px solid lightgray;
   margin: auto;
@@ -68,4 +68,5 @@ section:nth-child(odd) {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 2;
 }
