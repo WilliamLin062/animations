@@ -50,3 +50,19 @@ img:nth-of-type(2) {
 section:nth-child(odd) {
   background: #f1f1f1;
 }
+
+.sticky {
+  background: white;
+}
+
+#box {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border: 5px solid lightgray;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
