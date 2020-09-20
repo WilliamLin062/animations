@@ -58,3 +58,35 @@ img {
     margin-bottom: 0;
   }
 }
+
+.day1 {
+  position: relative;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-size: cover;
+}
+
+#simpleImage {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#simpleDoorImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 0%;
+  height: 0%;
+}
+
+.simpleContent2 {
+  margin-top: 10px;
+
+}

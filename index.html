@@ -14,19 +14,40 @@
     </section>
     <section class="dark">
       <div class="content">
-        <h2>Are you realy sick?</h2>
-        <p>go get yo sick</p>
+        <h2>new gsap scroll trigger</h2>
+        <p>day 1</p>
       </div>
       <img src="https://source.unsplash.com/random/" alt="" />
     </section>
-
+    <section class="day1">
+      <h2 class="simpleTitle">simple</h2>
+      <blockquote class="simpleContent">
+        強大的時間軸工具，簡單好上手
+      </blockquote>
+      <blockquote class="simpleContent2">
+        Scroll Trigger不用再搭配其他外掛
+      </blockquote>
+      <img
+        id="simpleImage"
+        src="https://source.unsplash.com/random/3000x3000"
+        alt=""
+      />
+      <img
+        id="simpleDoorImage"
+        src="https://images.unsplash.com/photo-1494869042583-f6c911f04b4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+        alt=""
+      />
+      <canvas id="canvas"></canvas>
+    </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
     <script>
       let tl = gsap.timeline({
         scrollTrigger: {
+          pin: true,
           trigger: '.dark',
-          start: 'center bottom',
+          start: 'top top',
+          scrub: 1,
         },
       })
       tl.from('img', { x: 200, opcity: 0, duration: 1.5 }).from('.content', {
@@ -34,6 +55,34 @@
         opacity: 0,
         duration: 1,
       })
+      let tl2 = gsap.timeline({
+        scrollTrigger: {
+          pin: true,
+          trigger: '.day1',
+          start: 'top top',
+          scrub: 1,
+        },
+      })
+      tl2
+        .from('.simpleTitle', { x: 300, opacity: 0 })
+        .to('.simpleContent', { opacity: 0 })
+        .to('.simpleTitle', { opacity: 0 })
+        .from('#simpleImage', { opacity: 0, x: 500 })
+        .to('#simpleImage', { width: '9%', height: '16%' })
+        .to('#simpleImage', { rotation: 27 })
+        .from('.simpleContent2', { x: '-150%' })
+        .to('#simpleImage', { opacity: 0 })
+        .to('#simpleImage', { opacity: 0 })
+        .to('.simpleContent2', { opacity: 0 })
+        .to('#simpleDoorImage', {
+          width: '180%',
+          height: '320%',
+        })
+        .to('#simpleDoorImage', {
+          x: '-15%',
+          width: '360%',
+          height: '640%',
+        })
     </script>
   </body>
 </html>
