@@ -95,3 +95,30 @@ img {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+
+.sub {
+  position: absolute;
+  right: 0;
+  width: 250px;
+  height: 100px;
+  background-image: url(../img/sub.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.deepSub {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin: auto;
+  width: 250px;
+  height: 100px;
+  background-image: url(../img/sub.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.day2 {
+  background-color: #1088a0;
+}

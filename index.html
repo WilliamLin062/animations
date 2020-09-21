@@ -32,12 +32,12 @@
         src="https://source.unsplash.com/random/3000x3000"
         alt=""
       />
-      <img
-        id="simpleDoorImage"
-        src="https://images.unsplash.com/photo-1494869042583-f6c911f04b4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
-        alt=""
-      />
+      <div class="sub"></div>
     </section>
+    <section class="day2">
+      <div class="deepSub"></div>
+    </section>
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
@@ -75,12 +75,27 @@
         .to('#simpleImage', { opacity: 0 })
         .to('#simpleImage', { opacity: 0 })
         .to('.simpleContent2', { opacity: 0 })
-        .to('#simpleDoorImage', {
-          width: '360%',
-          height: '640%',
+        .from('.sub', 1, { x: 500 })
+        .to('.sub', { transform: 'rotate(-45deg)' })
+        .to('.day1', { background: 'linear-gradient(#78b2c4, #1088a0)' })
+
+      let tl3 = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.day2',
+          pin: true,
+          start: 'top top',
+          scrub: 1,
+        },
+      })
+
+      tl3
+        .to('.day2', { background: 'linear-gradient(#1088a0, #0b3b42)' })
+        .from('.deepSub', { y: -100 })
+        .fromTo('.deepSub', { y: '=+100' }, { y: '50vh' })
+        .to('.day2', { background: 'linear-gradient(#0b3b42,#051f34)' })
+        .to('.deepSub', {
+          filter: 'drop-shadow(8px 8px 16px #c3c3c3) invert(65%)',
         })
-        .to('#simpleDoorImage', { display: 'none' })
-        .to('.day1', { backgroundColor: '#000' })
     </script>
     <script>
       const particlesJSON = {
