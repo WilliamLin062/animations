@@ -9,28 +9,49 @@
   >
   <title>PixiJS</title>
 </head>
+<link
+  rel="stylesheet"
+  href="style.css"
+>
 
 <body>
-  <section>
-    <div></div>
-  </section>
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.3/pixi.min.js
-"></script>
+  <canvas id='view'></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/PixiPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.0.2/pixi.min.js"></script>
   <script>
-    //Create a Pixi Application
-    let app = new PIXI.Application({
-      width: 256, // default: 800
-      height: 256, // default: 600
-      antialias: true, // default: false
-      transparent: false, // default: false
-      resolution: 1 // default: 1
-    });
-    app.renderer.backgroundColor = 0x061639;
-    //Add the canvas that Pixi automatically created for you to the HTML document
-    document.body.appendChild(app.view);
+    const view = document.querySelector('#view')
+    const app = new PIXI.Application({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      background: '#000',
+      view: view
+    })
+
+    document.body.appendChild(app.view)
+
+    const texttrue = PIXI.Texture.from('./img/sub.png')
+
+    const time = 2.0
+
+    const sub = new PIXI.Sprite(texttrue)
+
+    app.stage.addChild(sub)
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: 'body',
+        start: 'top top',
+        scrub: 1,
+      }
+    })
+    tl.from(sub, {
+      x: 900,
+      yoyo: true,
+      duration: time,
+      duration: 0.3
+    })
   </script>
 </body>
 
