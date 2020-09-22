@@ -122,3 +122,12 @@ img {
 .day2 {
   background-color: #1088a0;
 }
+
+.box {
+  display: inline-block;
+  background-color: #f5f5f5;
+  width: 100px;
+  height: 100px;
+  border: 2px;
+  margin: 3px;
+}
