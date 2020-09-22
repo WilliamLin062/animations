@@ -25,10 +25,19 @@
     const app = new PIXI.Application({
       width: window.innerWidth,
       height: window.innerHeight,
+      resokution: window.devicePixelRatio,
       background: '#000',
       view: view
     })
+    window.addEventListener('resize', resize)
 
+    function resize() {
+
+      _w = window.innerWidth
+      _h = window.innerHeight
+
+      app.renderer.resize(_w, _h)
+    }
     document.body.appendChild(app.view)
 
     const texttrue = PIXI.Texture.from('./img/sub.png')
@@ -36,22 +45,30 @@
     const time = 2.0
 
     const sub = new PIXI.Sprite(texttrue)
+    sub.x = app.view.width / 2
+    sub.y = app.view.height / 2
+    sub.width = 500
+    sub.height = 150
+    sub.anchor.x = 0.5
+    sub.anchor.y = 0.5
+    sub.anchor.set(0.5)
 
     app.stage.addChild(sub)
+    // app.ticker.add(animate)
+    function animate() {
+      sub.rotation += 0.1
+    }
 
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
-        scrub: 1,
-      }
-    })
-    tl.from(sub, {
-      x: 900,
-      yoyo: true,
-      duration: time,
-      duration: 0.3
-    })
+    // mouse interactions
+    app.stage.interactive = true;
+    app.stage.on('pointermove', movePlayer)
+
+    function movePlayer(e) {
+      let pos = e.data.global
+      sub.x = pos.x
+      sub.y = pos.y
+
+    }
   </script>
 </body>
 
