@@ -7,7 +7,7 @@ var app = new PIXI.Application({
   backgroundColor: 0x00000,
   view: view
 });
-var bubbleTexture = PIXI.Texture.from('../img/bubble.png');
+var bubbleTexture = PIXI.Texture.from('.././img/bubble.png');
 var starAmount = 20;
 var cameraZ = 0;
 var fov = 20;
