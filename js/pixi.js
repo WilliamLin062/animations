@@ -6,7 +6,7 @@ const app = new PIXI.Application({
   backgroundColor: 0x00000,
   view: view
 })
-const bubbleTexture = PIXI.Texture.from('.././img/bubble.png')
+const bubbleTexture = PIXI.Texture.from('../animations/img/bubble.png')
 const starAmount = 20
 let cameraZ = 0
 const fov = 20
